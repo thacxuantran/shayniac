@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npx shadcn@latest init -d)",
+      "Bash(npx shadcn@latest add:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint:*)",
+      "WebFetch(domain:www.figma.com)",
+      "Bash(cat:*)",
+      "mcp__figma__get_design_context",
+      "mcp__figma__get_screenshot"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

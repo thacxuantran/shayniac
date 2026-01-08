@@ -6,14 +6,14 @@ import type {
   Project,
   ProjectCategory,
   SocialLink,
-} from "@/types";
+} from "@/types"
 
 // Navigation Links
 export const navLinks: NavLink[] = [
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience-education" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Experiences", href: "/#experience-education" },
   { label: "About", href: "/about" },
-];
+]
 
 // Social Links
 export const socialLinks: SocialLink[] = [
@@ -32,10 +32,10 @@ export const socialLinks: SocialLink[] = [
     href: "https://github.com/thacxuantran",
     label: "GitHub",
   },
-];
+]
 
 // Project Categories for filtering
-export const projectCategories: ProjectCategory[] = ["Website", "Mobile"];
+export const projectCategories: ProjectCategory[] = ["Website", "Mobile"]
 
 // Product Design Projects
 export const productProjects: Project[] = [
@@ -46,7 +46,7 @@ export const productProjects: Project[] = [
       "A cross-platform telemedicine solution allowing patients to book appointments, manage insurance, and access prescriptions via web and mobile apps.",
     categories: ["Website", "Mobile"],
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=1200&h=600&fit=crop",
+      "https://resources.icanbwell.com/wp-content/uploads/2023/10/transforming-healthcare-3-2048x1074.png",
     imageAlt: "Medgate telemedicine platform interface",
     featured: true,
     year: "2024 - Present",
@@ -74,8 +74,7 @@ export const productProjects: Project[] = [
     description:
       "An intelligent customer support platform featuring visual flow builder, embeddable AI widget, admin dashboard, and SIP-based voice integration.",
     categories: ["Website"],
-    image:
-      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&h=600&fit=crop",
     imageAlt: "AI Voice Agent platform interface",
     featured: true,
     year: "2023 - 2024",
@@ -103,17 +102,14 @@ export const productProjects: Project[] = [
     description:
       "A comprehensive digital marketplace platform built with modern React stack, fulfilling customer requirements through collaborative solution development.",
     categories: ["Website"],
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
     imageAlt: "SBI Digital Market interface",
     featured: true,
     year: "2023",
     responsibilities: [
       "Participate in the entire project implementation process from start to finish, fulfill customer requirements, and engage in discussions to propose suitable solutions",
     ],
-    duties: [
-      "Discuss with customers about new features, problems, and solutions",
-    ],
+    duties: ["Discuss with customers about new features, problems, and solutions"],
     technologies: [
       "React",
       "TypeScript",
@@ -130,8 +126,7 @@ export const productProjects: Project[] = [
     description:
       "Multiple projects for Google customers focusing on analytics integration, event tracking, and SEO optimization across various e-commerce and education platforms.",
     categories: ["Website"],
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
     imageAlt: "Ecommerce and Education projects",
     year: "2022",
     responsibilities: [
@@ -141,13 +136,7 @@ export const productProjects: Project[] = [
       "Communicated and supported with Google product team for the prompt solution",
       "Be a part of Google Team to help customer solve all their problems in their website about UX/UI or content media to achieve SEO standards",
     ],
-    technologies: [
-      "React",
-      "JavaScript",
-      "NextJS",
-      "Google Analytics",
-      "Google Ads",
-    ],
+    technologies: ["React", "JavaScript", "NextJS", "Google Analytics", "Google Ads"],
   },
   {
     id: "project-5",
@@ -155,8 +144,7 @@ export const productProjects: Project[] = [
     description:
       "An intelligent chatbot platform with workflow creation, AI training capabilities, and customizable chatbot builder for healthcare services.",
     categories: ["Website"],
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
     imageAlt: "AI Chatbot Platform interface",
     year: "2021 - 2022",
     responsibilities: [
@@ -183,8 +171,7 @@ export const productProjects: Project[] = [
     description:
       "Master spoken English with an intelligent AI partner. Receive instant corrections on syntax and phonetics while conversing with various personas. Whether you are practicing for daily life or academic studies, our AI is trained to guide you through every level of conversation.",
     categories: ["Mobile"],
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
     imageAlt: "",
     year: "2021 - 2022",
     responsibilities: [
@@ -204,7 +191,7 @@ export const productProjects: Project[] = [
       "React native paper",
     ],
   },
-];
+]
 
 // Graphic Design Projects
 export const graphicProjects: GraphicProject[] = [
@@ -268,7 +255,7 @@ export const graphicProjects: GraphicProject[] = [
     size: "small",
     link: "/graphic/typography",
   },
-];
+]
 
 // Work Experience
 export const experiences: Experience[] = [
@@ -331,7 +318,18 @@ export const experiences: Experience[] = [
       "Research user behavior and find the most optimal solution",
     ],
   },
-];
+  {
+    id: "exp-5",
+    title: "Software Engineer Intern",
+    company: "FPT Software",
+    period: "May 2020 - Aug 2022",
+    highlights: [
+      "Collaborated with senior engineers to migrate legacy code to Reactjs, improving application performance and maintainability.",
+      "Identified and resolved critical bugs in the production environment, increasing system stability and customer satisfaction.",
+      "Wrote comprehensive unit and integration tests",
+    ],
+  },
+]
 
 // Education
 export const education: Education[] = [
@@ -347,21 +345,20 @@ export const education: Education[] = [
     degree: "Math Student",
     year: "2017",
   },
-];
+]
 
 // Hero Content
 export const heroContent = {
   greeting: "Hey there!",
-  tagline: ["I design digital", "products that", "people love to use."],
-  subtitle:
-    "Product Designer based in San Francisco, crafting thoughtful digital experiences for startups and enterprises.",
+  tagline: ["I'm Shayn!"],
+  subtitle: " Not just a developer — I’m your partner in digital innovation.",
   avatars: [
     { id: 1, image: "/images/avatars/avatar-1.jpg", alt: "Team member 1" },
     { id: 2, image: "/images/avatars/avatar-2.jpg", alt: "Team member 2" },
     { id: 3, image: "/images/avatars/avatar-3.jpg", alt: "Team member 3" },
     { id: 4, image: "/images/avatars/avatar-4.jpg", alt: "Team member 4" },
   ],
-};
+}
 
 // Section Titles
 export const sectionTitles = {
@@ -376,7 +373,6 @@ export const sectionTitles = {
   },
   experienceEducation: {
     title: "Experience & Education",
-    subtitle:
-      "My professional journey and academic background in software development.",
+    subtitle: "My professional journey and academic background in software development.",
   },
-};
+}

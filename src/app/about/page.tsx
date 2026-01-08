@@ -2,6 +2,7 @@
 
 import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
+import { Testimonials } from "@/components/testimonials"
 import { socialLinks } from "@/data/projects"
 import { cn } from "@/lib/utils"
 import type { SocialLink } from "@/types"
@@ -84,7 +85,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative min-h-[80vh] bg-[#1a1a1a] pt-20 md:pt-24">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="flex min-h-[calc(80vh-80px)] flex-col items-center justify-center gap-12 py-16 md:flex-row md:items-center md:justify-between md:gap-16 md:py-0">
+          <div className="flex min-h-[calc(80vh-80px)] flex-col items-center justify-center gap-12 py-16 md:flex-row md:items-center md:justify-between md:gap-10 md:py-0">
             {/* Left Content */}
             <div className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
               <p
@@ -98,17 +99,20 @@ export default function AboutPage() {
 
               <h1
                 className={cn(
-                  "mb-6 text-4xl font-bold leading-tight text-white transition-all duration-700 sm:text-5xl lg:text-6xl",
+                  "mb-6 text-5xl font-bold leading-tight text-white transition-all duration-700 sm:text-4xl lg:text-6xl",
                   isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
                 )}
                 style={{ transitionDelay: "150ms" }}
               >
-                Building digital
+                <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
+                  Code
+                </span>{" "}
+                that works
                 <br />
                 <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
-                  experiences
+                  Design
                 </span>{" "}
-                that matter
+                that scales
               </h1>
 
               <p
@@ -275,36 +279,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="bg-[#f5f5f5] py-20 md:py-28">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="mb-12 text-center md:mb-16">
-            <span className="mb-4 inline-block text-sm font-medium uppercase tracking-widest text-[#1a1a1a]/60">
-              My Values
-            </span>
-            <h2 className="text-3xl font-bold text-[#1a1a1a] sm:text-4xl">What drives my work</h2>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((value, index) => {
-              const Icon = value.icon
-              return (
-                <div
-                  key={value.title}
-                  className="group rounded-2xl bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#1a1a1a] text-white transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mb-2 text-lg font-semibold text-[#1a1a1a]">{value.title}</h3>
-                  <p className="text-sm leading-relaxed text-[#666666]">{value.description}</p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* CTA Section */}
       <section className="bg-[#1a1a1a] py-20 md:py-28">

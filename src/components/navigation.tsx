@@ -1,39 +1,37 @@
-'use client';
+"use client"
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Menu, X, Download } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { useScrollHeader } from '@/hooks/use-scroll-animation';
-import { navLinks } from '@/data/projects';
+import { navLinks } from "@/data/projects"
+import { useScrollHeader } from "@/hooks/use-scroll-animation"
+import { cn } from "@/lib/utils"
+import { Download, Menu, X } from "lucide-react"
+import Link from "next/link"
+import { useState } from "react"
 
 export function Navigation() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isScrolled = useScrollHeader(50);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const isScrolled = useScrollHeader(50)
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
 
   const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+    setIsMobileMenuOpen(false)
+  }
 
   const handleDownloadCV = () => {
     // Create a link to download the CV
-    const link = document.createElement('a');
-    link.href = '/cv/shayn-tran-cv.pdf'; // Place your CV file in public/cv/
-    link.download = 'Shayn-Tran-CV.pdf';
-    link.click();
-  };
+    const link = document.createElement("a")
+    link.href = "/cv/shayn-tran-cv.pdf" // Place your CV file in public/cv/
+    link.download = "Shayn-Tran-CV.pdf"
+    link.click()
+  }
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-[#1a1a1a]/95 backdrop-blur-md shadow-lg'
-          : 'bg-[#1a1a1a]'
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled ? "bg-[#1a1a1a]/95 backdrop-blur-md shadow-lg" : "bg-[#1a1a1a]",
       )}
     >
       <nav className="mx-auto max-w-[1200px] px-6 lg:px-8">
@@ -44,12 +42,7 @@ export function Navigation() {
             className="flex items-center gap-2 text-white transition-opacity hover:opacity-80"
             onClick={closeMobileMenu}
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg font-bold text-[#1a1a1a]">
-              S
-            </span>
-            <span className="text-lg font-semibold tracking-tight">
-              shayn
-            </span>
+            <span className="text-lg font-semibold tracking-tight">shayniac.</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -81,21 +74,17 @@ export function Navigation() {
             className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 md:hidden"
             onClick={toggleMobileMenu}
             aria-expanded={isMobileMenuOpen}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         <div
           className={cn(
-            'overflow-hidden transition-all duration-300 ease-in-out md:hidden',
-            isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+            "overflow-hidden transition-all duration-300 ease-in-out md:hidden",
+            isMobileMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0",
           )}
         >
           <div className="flex flex-col gap-2 pb-6 pt-2">
@@ -114,8 +103,8 @@ export function Navigation() {
             <button
               type="button"
               onClick={() => {
-                handleDownloadCV();
-                closeMobileMenu();
+                handleDownloadCV()
+                closeMobileMenu()
               }}
               className="mx-4 mt-2 flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#1a1a1a] transition-all duration-300 hover:bg-gray-100"
             >
@@ -126,5 +115,5 @@ export function Navigation() {
         </div>
       </nav>
     </header>
-  );
+  )
 }

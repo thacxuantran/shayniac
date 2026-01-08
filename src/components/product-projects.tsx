@@ -3,12 +3,16 @@
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import { ProjectCard } from '@/components/project-card';
+import { ProjectModal } from '@/components/project-modal';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { productProjects, projectCategories, sectionTitles } from '@/data/projects';
-import type { ProjectCategory } from '@/types';
+import type { Project, ProjectCategory } from '@/types';
 
 export function ProductProjects() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | 'All'>('All');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation({
     threshold: 0.05,
     triggerOnce: true,
@@ -24,100 +28,119 @@ export function ProductProjects() {
     );
   }, [activeFilter]);
 
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <section
-      id="projects"
-      ref={sectionRef as React.RefObject<HTMLElement>}
-      className="bg-white py-20 md:py-28 lg:py-32"
-    >
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-        <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
-          {/* Sticky Sidebar */}
-          <aside className="lg:w-64 lg:flex-shrink-0">
-            <div className="lg:sticky lg:top-28">
-              {/* Section Label */}
-              <div
-                className={cn(
-                  'mb-6 transition-all duration-700',
-                  sectionVisible
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-4 opacity-0'
-                )}
-              >
-                <h2 className="mb-2 text-2xl font-bold text-[#1a1a1a]">
-                  {sectionTitles.productDesign.label}
-                </h2>
-                <p className="text-sm leading-relaxed text-gray-600">
-                  {sectionTitles.productDesign.description}
-                </p>
-              </div>
-
-              {/* Category Filters */}
-              <div
-                className={cn(
-                  'flex flex-wrap gap-2 transition-all duration-700 lg:flex-col lg:gap-1',
-                  sectionVisible
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-4 opacity-0'
-                )}
-                style={{ transitionDelay: '150ms' }}
-              >
-                {/* All Filter */}
-                <FilterButton
-                  label="All"
-                  isActive={activeFilter === 'All'}
-                  onClick={() => setActiveFilter('All')}
-                  count={productProjects.length}
-                />
-
-                {/* Category Filters */}
-                {projectCategories.map((category) => {
-                  const count = productProjects.filter((p) =>
-                    p.categories.includes(category)
-                  ).length;
-
-                  return (
-                    <FilterButton
-                      key={category}
-                      label={category}
-                      isActive={activeFilter === category}
-                      onClick={() => setActiveFilter(category)}
-                      count={count}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </aside>
-
-          {/* Projects Grid */}
-          <div className="flex-1">
-            <div
-              className={cn(
-                'grid gap-6 sm:grid-cols-2',
-                filteredProjects.length === 0 && 'min-h-[300px]'
-              )}
-            >
-              {filteredProjects.length > 0 ? (
-                filteredProjects.map((project, index) => (
-                  <ProjectCard
-                    key={project.id}
-                    project={project}
-                    index={index}
-                  />
-                ))
-              ) : (
-                <div className="col-span-2 flex items-center justify-center">
-                  <p className="text-gray-500">
-                    No projects found in this category.
+    <>
+      <section
+        id="projects"
+        ref={sectionRef as React.RefObject<HTMLElement>}
+        className="bg-white py-20 md:py-28 lg:py-32"
+      >
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
+            {/* Sticky Sidebar */}
+            <aside className="lg:w-64 lg:flex-shrink-0">
+              <div className="lg:sticky lg:top-28">
+                {/* Section Label */}
+                <div
+                  className={cn(
+                    'mb-6 transition-all duration-700',
+                    sectionVisible
+                      ? 'translate-y-0 opacity-100'
+                      : 'translate-y-4 opacity-0'
+                  )}
+                >
+                  <h2 className="mb-2 text-2xl font-bold text-[#1a1a1a]">
+                    {sectionTitles.productDesign.label}
+                  </h2>
+                  <p className="text-sm leading-relaxed text-gray-600">
+                    {sectionTitles.productDesign.description}
                   </p>
                 </div>
-              )}
+
+                {/* Category Filters */}
+                <div
+                  className={cn(
+                    'flex flex-wrap gap-2 transition-all duration-700 lg:flex-col lg:gap-1',
+                    sectionVisible
+                      ? 'translate-y-0 opacity-100'
+                      : 'translate-y-4 opacity-0'
+                  )}
+                  style={{ transitionDelay: '150ms' }}
+                >
+                  {/* All Filter */}
+                  <FilterButton
+                    label="All"
+                    isActive={activeFilter === 'All'}
+                    onClick={() => setActiveFilter('All')}
+                    count={productProjects.length}
+                  />
+
+                  {/* Category Filters */}
+                  {projectCategories.map((category) => {
+                    const count = productProjects.filter((p) =>
+                      p.categories.includes(category)
+                    ).length;
+
+                    return (
+                      <FilterButton
+                        key={category}
+                        label={category}
+                        isActive={activeFilter === category}
+                        onClick={() => setActiveFilter(category)}
+                        count={count}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            </aside>
+
+            {/* Projects Grid */}
+            <div className="flex-1">
+              <div
+                className={cn(
+                  'grid gap-6 sm:grid-cols-2',
+                  filteredProjects.length === 0 && 'min-h-[300px]'
+                )}
+              >
+                {filteredProjects.length > 0 ? (
+                  filteredProjects.map((project, index) => (
+                    <ProjectCard
+                      key={project.id}
+                      project={project}
+                      index={index}
+                      onClick={() => handleProjectClick(project)}
+                    />
+                  ))
+                ) : (
+                  <div className="col-span-2 flex items-center justify-center">
+                    <p className="text-gray-500">
+                      No projects found in this category.
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
+    </>
   );
 }
 

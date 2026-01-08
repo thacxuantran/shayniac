@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import type { Project } from '@/types';
@@ -8,16 +7,17 @@ import type { Project } from '@/types';
 interface ProjectCardProps {
   project: Project;
   index?: number;
+  onClick?: () => void;
 }
 
-export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+export function ProjectCard({ project, index = 0, onClick }: ProjectCardProps) {
   const { ref, isVisible } = useScrollAnimation({
     threshold: 0.1,
     triggerOnce: true,
   });
 
   const cardClassName = cn(
-    'group block overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-500',
+    'group block overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-500 cursor-pointer',
     'hover:scale-[1.02] hover:shadow-xl',
     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
   );
@@ -26,8 +26,21 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     transitionDelay: `${index * 100}ms`,
   };
 
-  const cardContent = (
-    <>
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={cardClassName}
+      style={cardStyle}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
+    >
       {/* Image Container */}
       <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
         {/* Placeholder gradient background */}
@@ -56,8 +69,34 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
         </div>
 
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/5" />
+        {/* Year badge */}
+        <div className="absolute right-3 top-3 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+          {project.year}
+        </div>
+
+        {/* Hover overlay with icon */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover:bg-black/20">
+          <div className="flex h-12 w-12 scale-0 items-center justify-center rounded-full bg-white text-gray-900 opacity-0 shadow-lg transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
 
       {/* Content */}
@@ -67,7 +106,12 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           {project.categories.map((category) => (
             <span
               key={category}
-              className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium uppercase tracking-wide text-gray-600"
+              className={cn(
+                'rounded-full px-3 py-1 text-xs font-medium uppercase tracking-wide',
+                category === 'Mobile'
+                  ? 'bg-green-100 text-green-700'
+                  : 'bg-blue-100 text-blue-700'
+              )}
             >
               {category}
             </span>
@@ -83,35 +127,31 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         <p className="line-clamp-2 text-sm leading-relaxed text-gray-600">
           {project.description}
         </p>
+
+        {/* Technologies preview */}
+        {project.technologies && project.technologies.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {project.technologies.slice(0, 4).map((tech) => (
+              <span
+                key={tech}
+                className="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-600"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.technologies.length > 4 && (
+              <span className="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
+                +{project.technologies.length - 4}
+              </span>
+            )}
+          </div>
+        )}
       </div>
-    </>
-  );
-
-  if (project.link) {
-    return (
-      <Link
-        href={project.link}
-        ref={ref as React.RefObject<HTMLAnchorElement>}
-        className={cardClassName}
-        style={cardStyle}
-      >
-        {cardContent}
-      </Link>
-    );
-  }
-
-  return (
-    <div
-      ref={ref as React.RefObject<HTMLDivElement>}
-      className={cardClassName}
-      style={cardStyle}
-    >
-      {cardContent}
     </div>
   );
 }
 
-// Graphic Design Card variant
+// Graphic Design Card variant (keeping for backwards compatibility)
 interface GraphicCardProps {
   project: {
     id: string;
@@ -142,8 +182,12 @@ export function GraphicCard({ project, index = 0 }: GraphicCardProps) {
     transitionDelay: `${index * 100}ms`,
   };
 
-  const cardContent = (
-    <>
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={cardClassName}
+      style={cardStyle}
+    >
       {/* Image Container */}
       <div
         className={cn(
@@ -188,29 +232,6 @@ export function GraphicCard({ project, index = 0 }: GraphicCardProps) {
           {project.description}
         </p>
       </div>
-    </>
-  );
-
-  if (project.link) {
-    return (
-      <Link
-        href={project.link}
-        ref={ref as React.RefObject<HTMLAnchorElement>}
-        className={cardClassName}
-        style={cardStyle}
-      >
-        {cardContent}
-      </Link>
-    );
-  }
-
-  return (
-    <div
-      ref={ref as React.RefObject<HTMLDivElement>}
-      className={cardClassName}
-      style={cardStyle}
-    >
-      {cardContent}
     </div>
   );
 }

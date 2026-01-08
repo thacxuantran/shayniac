@@ -23,14 +23,13 @@ export interface Project {
   imageAlt: string;
   link?: string;
   featured?: boolean;
+  year: string;
+  responsibilities?: string[];
+  duties?: string[];
+  technologies?: string[];
 }
 
-export type ProjectCategory =
-  | 'Mobile'
-  | 'Subscription'
-  | 'SaaS Product'
-  | 'Design System'
-  | 'AR/VR';
+export type ProjectCategory = 'Website' | 'Mobile';
 
 export interface GraphicProject {
   id: string;

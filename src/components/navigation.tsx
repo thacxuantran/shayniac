@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useScrollHeader } from '@/hooks/use-scroll-animation';
 import { navLinks } from '@/data/projects';
@@ -17,6 +17,14 @@ export function Navigation() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleDownloadCV = () => {
+    // Create a link to download the CV
+    const link = document.createElement('a');
+    link.href = '/cv/shayn-tran-cv.pdf'; // Place your CV file in public/cv/
+    link.download = 'Shayn-Tran-CV.pdf';
+    link.click();
   };
 
   return (
@@ -55,6 +63,16 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Download CV Button */}
+            <button
+              type="button"
+              onClick={handleDownloadCV}
+              className="group flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#1a1a1a] transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/20"
+            >
+              <span>Download CV</span>
+              <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,7 +95,7 @@ export function Navigation() {
         <div
           className={cn(
             'overflow-hidden transition-all duration-300 ease-in-out md:hidden',
-            isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+            isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
           )}
         >
           <div className="flex flex-col gap-2 pb-6 pt-2">
@@ -91,6 +109,19 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Mobile Download CV Button */}
+            <button
+              type="button"
+              onClick={() => {
+                handleDownloadCV();
+                closeMobileMenu();
+              }}
+              className="mx-4 mt-2 flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#1a1a1a] transition-all duration-300 hover:bg-gray-100"
+            >
+              <span>Download CV</span>
+              <Download className="h-4 w-4" />
+            </button>
           </div>
         </div>
       </nav>

@@ -1,18 +1,18 @@
 import type {
-  Project,
+  Education,
+  Experience,
   GraphicProject,
   NavLink,
-  SocialLink,
+  Project,
   ProjectCategory,
-  Experience,
-  Education,
+  SocialLink,
 } from "@/types";
 
 // Navigation Links
 export const navLinks: NavLink[] = [
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience-education" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
 ];
 
 // Social Links
@@ -45,7 +45,8 @@ export const productProjects: Project[] = [
     description:
       "A cross-platform telemedicine solution allowing patients to book appointments, manage insurance, and access prescriptions via web and mobile apps.",
     categories: ["Website", "Mobile"],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=1200&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=1200&h=600&fit=crop",
     imageAlt: "Medgate telemedicine platform interface",
     featured: true,
     year: "2024 - Present",
@@ -73,7 +74,8 @@ export const productProjects: Project[] = [
     description:
       "An intelligent customer support platform featuring visual flow builder, embeddable AI widget, admin dashboard, and SIP-based voice integration.",
     categories: ["Website"],
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&h=600&fit=crop",
     imageAlt: "AI Voice Agent platform interface",
     featured: true,
     year: "2023 - 2024",
@@ -101,7 +103,8 @@ export const productProjects: Project[] = [
     description:
       "A comprehensive digital marketplace platform built with modern React stack, fulfilling customer requirements through collaborative solution development.",
     categories: ["Website"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
     imageAlt: "SBI Digital Market interface",
     featured: true,
     year: "2023",
@@ -127,7 +130,8 @@ export const productProjects: Project[] = [
     description:
       "Multiple projects for Google customers focusing on analytics integration, event tracking, and SEO optimization across various e-commerce and education platforms.",
     categories: ["Website"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
     imageAlt: "Ecommerce and Education projects",
     year: "2022",
     responsibilities: [
@@ -151,7 +155,8 @@ export const productProjects: Project[] = [
     description:
       "An intelligent chatbot platform with workflow creation, AI training capabilities, and customizable chatbot builder for healthcare services.",
     categories: ["Website"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
     imageAlt: "AI Chatbot Platform interface",
     year: "2021 - 2022",
     responsibilities: [
@@ -170,6 +175,33 @@ export const productProjects: Project[] = [
       "Figma",
       "Photoshop",
       "Sketch",
+    ],
+  },
+  {
+    id: "project-6",
+    title: "Chamate - Speaking Practice with AI",
+    description:
+      "Master spoken English with an intelligent AI partner. Receive instant corrections on syntax and phonetics while conversing with various personas. Whether you are practicing for daily life or academic studies, our AI is trained to guide you through every level of conversation.",
+    categories: ["Mobile"],
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
+    imageAlt: "",
+    year: "2021 - 2022",
+    responsibilities: [
+      "Founding Member & Mobile Lead: Established the project foundations from day one, overseeing the entire mobile ecosystem.",
+      "End-to-End Product Development: Managed the full product lifecycle alongside the Co-founder, transforming initial concepts into UI/UX designs and high-performance code.",
+      "Technical Leadership: Led and mentored the engineering team, ensuring code quality and adherence to project timelines.",
+      "Strategic Execution: Translated business ideas into tangible mobile features, driving the product from zero to launch.",
+    ],
+    technologies: [
+      "ReactJS",
+      "React Native",
+      "TypeScript",
+      "Zustand",
+      "Restful",
+      "Shadcn UI",
+      "React Hook Form",
+      "React native paper",
     ],
   },
 ];

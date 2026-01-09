@@ -499,10 +499,10 @@ export const heroContent = {
   tagline: ["I'm Shayn!"],
   subtitle: " Not just a developer — I’m your partner in digital innovation.",
   avatars: [
-    { id: 1, image: "/images/avatars/avatar-1.jpg", alt: "Team member 1" },
-    { id: 2, image: "/images/avatars/avatar-2.jpg", alt: "Team member 2" },
-    { id: 3, image: "/images/avatars/avatar-3.jpg", alt: "Team member 3" },
-    { id: 4, image: "/images/avatars/avatar-4.jpg", alt: "Team member 4" },
+    { id: 1, image: "/assets/images/avatar1.jpeg", alt: "Team member 1" },
+    { id: 2, image: "/assets/images/avatar2.jpeg", alt: "Team member 2" },
+    { id: 3, image: "/assets/images/avatar3.jpeg", alt: "Team member 3" },
+    { id: 4, image: "/assets/images/avatar4.jpeg", alt: "Team member 4" },
   ],
 }
 

@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import { ProjectCard } from '@/components/project-card';
 import { ProjectModal } from '@/components/project-modal';
+import { UXUIModal } from '@/components/uxui-modal';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { productProjects, projectCategories, sectionTitles } from '@/data/projects';
 import type { Project, ProjectCategory } from '@/types';
@@ -12,6 +13,7 @@ export function ProductProjects() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | 'All'>('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isUXUIModalOpen, setIsUXUIModalOpen] = useState(false);
 
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation({
     threshold: 0.05,
@@ -30,11 +32,21 @@ export function ProductProjects() {
 
   const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
-    setIsModalOpen(true);
+
+    // Check if it's a UX/UI project
+    if (project.categories.includes('UX/UI')) {
+      setIsUXUIModalOpen(true);
+    } else {
+      setIsModalOpen(true);
+    }
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleCloseUXUIModal = () => {
+    setIsUXUIModalOpen(false);
   };
 
   return (
@@ -134,11 +146,18 @@ export function ProductProjects() {
         </div>
       </section>
 
-      {/* Project Modal */}
+      {/* Regular Project Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
+      />
+
+      {/* UX/UI Project Modal */}
+      <UXUIModal
+        project={selectedProject}
+        isOpen={isUXUIModalOpen}
+        onClose={handleCloseUXUIModal}
       />
     </>
   );

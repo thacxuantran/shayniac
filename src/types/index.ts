@@ -27,9 +27,20 @@ export interface Project {
   responsibilities?: string[];
   duties?: string[];
   technologies?: string[];
+  // UX/UI specific fields
+  designGallery?: DesignImage[];
+  designTools?: string[];
+  designProcess?: string[];
 }
 
-export type ProjectCategory = 'Website' | 'Mobile';
+export interface DesignImage {
+  id: string;
+  url: string;
+  alt: string;
+  caption?: string;
+}
+
+export type ProjectCategory = 'Website' | 'Mobile' | 'UX/UI';
 
 export interface GraphicProject {
   id: string;

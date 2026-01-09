@@ -35,7 +35,7 @@ export const socialLinks: SocialLink[] = [
 ]
 
 // Project Categories for filtering
-export const projectCategories: ProjectCategory[] = ["Website", "Mobile"]
+export const projectCategories: ProjectCategory[] = ["Website", "Mobile", "UX/UI"]
 
 // Product Design Projects
 export const productProjects: Project[] = [
@@ -45,8 +45,7 @@ export const productProjects: Project[] = [
     description:
       "A cross-platform telemedicine solution allowing patients to book appointments, manage insurance, and access prescriptions via web and mobile apps.",
     categories: ["Website", "Mobile"],
-    image:
-      "https://resources.icanbwell.com/wp-content/uploads/2023/10/transforming-healthcare-3-2048x1074.png",
+    image: "https://i.ytimg.com/vi/DfgdBLWWf58/maxresdefault.jpg",
     imageAlt: "Medgate telemedicine platform interface",
     featured: true,
     year: "2024 - Present",
@@ -102,7 +101,8 @@ export const productProjects: Project[] = [
     description:
       "A comprehensive digital marketplace platform built with modern React stack, fulfilling customer requirements through collaborative solution development.",
     categories: ["Website"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    image:
+      "https://www.ledgerinsights.com/wp-content/uploads/2024/11/SBI-digital-markets-tokenization.jpg",
     imageAlt: "SBI Digital Market interface",
     featured: true,
     year: "2023",
@@ -144,7 +144,8 @@ export const productProjects: Project[] = [
     description:
       "An intelligent chatbot platform with workflow creation, AI training capabilities, and customizable chatbot builder for healthcare services.",
     categories: ["Website"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
+    image:
+      "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/300961816_763898051549968_2064503114598938135_n.png?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Gji5cepYrPIQ7kNvwELYEvC&_nc_oc=AdkEf3AI-iy4u_07v0gWVhoP_5jiYCzc7HcwbLmjWAmxMjnjFYYJD0su5ArxWgrhDNJ_FpaZ52zOrc7aBITqS9Y_&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=Jd_VgPRqEA0oku0vVZ868Q&oh=00_AfpjKeVdSv2oFk5016PtkEsf0diIxWcP2zQTKbWjnIN2QQ&oe=696648A6",
     imageAlt: "AI Chatbot Platform interface",
     year: "2021 - 2022",
     responsibilities: [
@@ -171,7 +172,8 @@ export const productProjects: Project[] = [
     description:
       "Master spoken English with an intelligent AI partner. Receive instant corrections on syntax and phonetics while conversing with various personas. Whether you are practicing for daily life or academic studies, our AI is trained to guide you through every level of conversation.",
     categories: ["Mobile"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
+    image:
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/73/45/ed734595-eb52-8e58-14f0-38e8a9e2c12f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/1200x630wa.jpg",
     imageAlt: "",
     year: "2021 - 2022",
     responsibilities: [
@@ -189,6 +191,150 @@ export const productProjects: Project[] = [
       "Shadcn UI",
       "React Hook Form",
       "React native paper",
+    ],
+  },
+  {
+    id: "project-7",
+    title: "Athenka - AI Chatbot Platform",
+    description:
+      "An intelligent chatbot platform with workflow creation, AI training capabilities, and customizable chatbot builder for healthcare services.",
+    categories: ["UX/UI"],
+    image: "/assets/images/athenka1.png",
+    imageAlt: "Athenka AI Chatbot Platform",
+    featured: true,
+    year: "2021",
+    designProcess: [
+      "Workflow Creation: Implemented a drag-and-drop interface for creating and managing chatbot workflows, allowing users to define conversation paths and responses",
+      "AI Training: Built an AI training interface using React Flow, allowing users to train the chatbot on specific topics and intents",
+      "Customizable Chatbot Builder: Created a customizable chatbot builder using Shadcn UI and React Hook Form, allowing users to create and customize chatbots for their specific needs",
+      "Voice Integration: Integrated SIP-based voice features, allowing the chatbot to handle incoming calls, identify customer intent, and route users through specific support flows or to human agents",
+    ],
+    designTools: ["Figma", "FigJam", "Maze", "Notion", "Adobe Illustrator"],
+    designGallery: [
+      {
+        id: "design-1",
+        url: "/assets/images/athenka1.png",
+        alt: "Dashboard Overview",
+        caption: "Logo and branding",
+      },
+      {
+        id: "design-2",
+        url: "/assets/images/athenka2.png",
+        alt: "Analytics View",
+        caption: "AI Chatbot Widget",
+      },
+      {
+        id: "design-3",
+        url: "/assets/images/athenka3.png",
+        alt: "Patient Management",
+        caption: "AI Chatbot Builder and Node flow ",
+      },
+      {
+        id: "design-4",
+        url: "/assets/images/athenka4.png",
+        alt: "Mobile Responsive Design",
+        caption: "Components and animations",
+      },
+      {
+        id: "design-5",
+        url: "/assets/images/athenka5.png",
+        alt: "Mobile Responsive Design",
+        caption: "Main Workflow and Node flow",
+      },
+      {
+        id: "design-6",
+        url: "/assets/images/athenka6.png",
+        alt: "Mobile Responsive Design",
+        caption: "Icons and illustrations",
+      },
+    ],
+  },
+  {
+    id: "project-8",
+    title: "Eflowai - Omnichannel Customer Support Platform",
+    description:
+      "An intelligent customer support platform featuring visual flow builder, embeddable AI widget, admin dashboard, and SIP-based voice integration.",
+    categories: ["UX/UI"],
+    image: "/assets/images/eflowai1.png",
+    imageAlt: "Eflowai Omnichannel Customer Support Platform",
+    featured: true,
+    year: "2024",
+    designProcess: [
+      "Visual Flow Builder: Implemented an interactive, drag-and-drop AI training interface using React Flow, allowing users to visually design conversation flows and logic for the AI agents based on the Flowise engine",
+      "Embeddable AI Widget: Engineered a lightweight, customizable chat widget integrated with AI capabilities, designed to be easily embedded into third-party client websites",
+      "Admin Dashboard: Built a feature-rich admin dashboard using Shadcn UI and React Hook Form, enabling businesses to manage staff, curate enterprise knowledge bases for AI training, and monitor real-time conversation analytics",
+      "Voice Integration: Integrated SIP-based voice features, allowing the AI agent to handle incoming calls, identify customer intent, and route users through specific support flows or to human agents",
+    ],
+    designTools: ["Figma", "FigJam", "Maze", "Notion", "Adobe Illustrator"],
+    designGallery: [
+      {
+        id: "design-1",
+        url: "/assets/images/eflowai1.png",
+        alt: "Eflowai Omnichannel Customer Support Platform",
+        caption: "Main dashboard",
+      },
+      {
+        id: "design-4",
+        url: "/assets/images/eflowai2.png",
+        alt: "Eflowai Omnichannel Customer Support Platform",
+        caption: "User management",
+      },
+      {
+        id: "design-5",
+        url: "/assets/images/eflowai3.png",
+        alt: "Eflowai Omnichannel Customer Support Platform",
+        caption: "Data visualization and Task management",
+      },
+      {
+        id: "design-6",
+        url: "/assets/images/eflowai4.png",
+        alt: "Eflowai Omnichannel Customer Support Platform",
+        caption: "Components and animations",
+      },
+    ],
+  },
+  {
+    id: "project-9",
+    title: "GEN - Recruitment Platform",
+    description:
+      "A recruitment platform with job posting, candidate management, and interview scheduling features.",
+    categories: ["UX/UI"],
+    image: "/assets/images/gen1.png",
+    imageAlt: "GEN Recruitment Platform",
+    featured: true,
+    year: "2020",
+    designProcess: [
+      "Job Posting: Implemented a job posting interface using React Flow, allowing users to post jobs and manage job applications",
+      "Candidate Management: Built a candidate management interface using Shadcn UI and React Hook Form, allowing users to manage candidates and interview scheduling",
+      "Interview Scheduling: Built an interview scheduling interface using React Flow, allowing users to schedule interviews and manage interviewers",
+      "Interview Management: Built an interview management interface using Shadcn UI and React Hook Form, allowing users to manage interviews and interviewers",
+    ],
+    designTools: ["Figma", "FigJam", "Maze", "Notion", "Adobe Illustrator"],
+    designGallery: [
+      {
+        id: "design-1",
+        url: "/assets/images/gen1.png",
+        alt: "GEN Recruitment Platform",
+        caption: "GEN Recruitment Platform",
+      },
+      {
+        id: "design-2",
+        url: "/assets/images/gen2.png",
+        alt: "GEN Recruitment Platform",
+        caption: "Job posting interface",
+      },
+      {
+        id: "design-3",
+        url: "/assets/images/gen3.png",
+        alt: "GEN Recruitment Platform",
+        caption: "Homepage",
+      },
+      {
+        id: "design-4",
+        url: "/assets/images/gen4.png",
+        alt: "GEN Recruitment Platform",
+        caption: "Event page",
+      },
     ],
   },
 ]

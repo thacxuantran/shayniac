@@ -52,6 +52,3 @@ pnpm dev
 
 **Shayn (Thac Xuan Tran)**
 
-- LinkedIn: [thacxuantran](https://www.linkedin.com/in/thacxuantran/)
-- GitHub: [thacxuantran](https://github.com/thacxuantran)
-- Email: xuanthactk13@gmail.com
